@@ -22,7 +22,7 @@ WITH (
   OIDS=FALSE
 );
 
-CREATE TABLE rrb1.oes_dashboard
+CREATE TABLE oes_dashboard
 (
   od_tc_id numeric(16,0) NOT NULL,
   od_test_date date NOT NULL,

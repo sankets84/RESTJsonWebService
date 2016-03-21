@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM 
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+   <session-factory>
+    
+       <!-- Commenting in case of default -->
+       <!-- <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property> -->
+        <!-- Commenting in case of default -->
+        
+     	<!-- For JNDI -->
+        <!-- <property name="connection.datasource">SampleDS</property> -->
+        <!-- <jee:jndi-lookup id="dataSource" jndi-name="java:decentralizationExam" /> -->
+        <!-- For JNDI -->
+        
+        <!-- For Supporting JSON Data -->
+        <property name="hibernate.dialect">com.nseit.rest.type.JsonPostgreSQLDialect</property>   
+        <!-- End supporting json data -->   
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.username">rrb1</property>
+        <property name="hibernate.connection.password">rrb</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://172.25.18.58:5432/rrb1</property>
+
+        <!--  <property name="connection_pool_size">1</property> -->
+
+        <property name="hbm2ddl.auto">update</property>
+        
+        <!-- C3P0 Connection Pool -->
+        <property name="hibernate.connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider</property>
+		<property name="hibernate.c3p0.min_size">10</property>
+		<property name="hibernate.c3p0.max_size">50</property>
+		<property name="hibernate.c3p0.timeout">120</property>
+		<property name="hibernate.c3p0.max_statements">10</property>
+		<property name="hibernate.c3p0.acquire_increment">5</property>
+        <!-- C3P0 Connection Pool -->
+       
+        
+        <!-- Query Level Caching -->
+        <!-- <property name="hibernate.cache.use_query_cache">true</property> --> 
+
+        <property name="show_sql">true</property>
+
+       <mapping class="com.nseit.rest.model.OesDashboardId"/>
+       <mapping class="com.nseit.rest.model.OesDashboard1"/>
+       <mapping class="com.nseit.rest.model.OesDashboard"/>
+</session-factory>
+</hibernate-configuration>
